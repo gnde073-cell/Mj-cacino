@@ -60,3 +60,12 @@ input[type=number]{ width:110px; padding:6px; border-radius:6px; border:none; }
 /* animations */
 @keyframes splashHide{ to{ opacity:0; visibility:hidden; } }
 @keyframes splashFloat{ 0%{ transform:translateY(0) } 50%{ transform:translateY(-14px)} 100%{ transform:translateY(0)} }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  width: 90px;
+}

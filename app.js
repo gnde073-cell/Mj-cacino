@@ -1,5 +1,5 @@
 // Suits and Ranks
-const suits = ["C", "D", "H", "S"]; 
+const suits = ["C", "D", "H", "S"];
 const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
 // Generate Card Deck
@@ -10,7 +10,7 @@ function generateDeck() {
             let cardName = `${rank}${suit}.svg`;
             deck.push({
                 name: `${rank}${suit}`,
-                img: `./cards/${cardName}`
+                img: `${window.location.origin}${window.location.pathname}cards/${cardName}`
             });
         }
     }

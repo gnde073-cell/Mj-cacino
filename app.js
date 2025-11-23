@@ -1,36 +1,45 @@
-// Suits and Ranks
-const suits = ["C", "D", "H", "S"];
-const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let RC = 0;
 
-// Generate Card Deck
-function generateDeck() {
-    let deck = [];
-    for (let suit of suits) {
-        for (let rank of ranks) {
-            let cardName = `${rank}${suit}.svg`;
-            deck.push({
-                name: `${rank}${suit}`,
-                img: `${window.location.origin}${window.location.pathname}cards/${cardName}`
-            });
-        }
+// قيم Wong Halves
+const VALUES_WONG = {
+  "A": -0.5, "2": 0.5, "3": 1, "4": 1, "5": 1.5, "6": 1,
+  "7": 0.5, "8": 0, "9": -0.5, "10": -1, "J": -1, "Q": -1, "K": -1
+};
+
+const RANKS = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+const SUITS = ["S","H","D","C"];
+
+// صوت الضغط
+const clickSound = new Audio("assets/sounds/click.mp3");
+
+window.onload = () => {
+  buildCardsGrid();
+};
+
+// بناء شبكة الأوراق
+function buildCardsGrid() {
+  const grid = document.getElementById("cardsGrid");
+  grid.innerHTML = "";
+
+  for (let r of RANKS) {
+    for (let s of SUITS) {
+
+      let img = document.createElement("img");
+      img.src = `assets/cards/${r}${s}.png`;
+      img.alt = r + s;
+
+      img.onclick = () => {
+        addToCount(r);
+        clickSound.play();
+      };
+
+      grid.appendChild(img);
     }
-    return deck;
+  }
 }
 
-// Render Deck
-function renderDeck() {
-    const container = document.getElementById("cardsContainer");
-    const deck = generateDeck();
-    container.innerHTML = "";
-
-    deck.forEach(card => {
-        const img = document.createElement("img");
-        img.src = card.img;
-        img.alt = card.name;
-        img.className = "card";
-        container.appendChild(img);
-    });
+// إضافة للعداد
+function addToCount(rank) {
+  RC += VALUES_WONG[rank] || 0;
+  document.getElementById("RC").innerText = RC.toFixed(2);
 }
-
-// Run
-window.onload = renderDeck;

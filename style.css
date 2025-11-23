@@ -1,0 +1,34 @@
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+#splash{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    animation:fadeout 1s ease 4s forwards;
+}
+.logo{
+    width:260px;
+    animation:float 3s infinite ease-in-out;
+}
+.title{
+    font-size:32px;
+    margin-top:20px;
+}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+@keyframes fadeout{
+    to{opacity:0; visibility:hidden;}
+}

@@ -1,158 +1,113 @@
-:root{
-  --bg-dark:#050509;
-  --panel:#0f0f12;
-  --accent:#d7b54a;
-  --glass: rgba(255,255,255,0.03);
-}
-
-*{box-sizing:border-box;font-family: "Segoe UI", Tahoma, Arial;}
-
-/* Splash */
-#splash{
-  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-  background: radial-gradient(circle at 50% 30%, rgba(20,20,25,1) 0%, rgba(4,4,6,1) 60%);
-  z-index:9999;
-  animation: splashHide 1s ease 4s forwards;
-}
-.splash-inner{ text-align:center;color:#fff; transform: translateY(0); animation: splashFloat 3s ease-in-out infinite;}
-#mgLogo{ width:220px; filter: drop-shadow(0 12px 30px rgba(0,0,0,0.8)); border-radius:12px;}
-
-/* topbar & background */
-body{
-  margin:0;background: linear-gradient(180deg,#051018 0%, #000 100%); color:#eee; min-height:100vh;
-  background-image:
-    radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 40%);
-  display:flex;flex-direction:column;
-}
-.topbar{ padding:14px 24px; text-align:center; font-size:20px; font-weight:700; letter-spacing:1px; color:var(--accent);}
-
-/* layout */
-.container{ display:flex; gap:18px; padding:24px; align-items:flex-start; justify-content:center;}
-.left{ width:58%; } .right{ width:34%; }
-
-/* game box */
-.game-box{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:14px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); min-height:400px; }
-.controls{ margin:12px 0; }
-button{ background:#fff; color:#000; padding:10px 14px; border-radius:8px; border:none; margin:4px; cursor:pointer; font-weight:600;}
-button:disabled{ opacity:0.45; cursor:not-allowed;}
-
-/* cards */
-.cardsRow{ margin-top:8px; min-height:70px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
-.cardImg{ width:70px; height:100px; object-fit:cover; border-radius:8px; box-shadow: 0 8px 18px rgba(0,0,0,0.8); cursor:pointer; transition:transform .18s;}
-.cardImg:active{ transform: translateY(3px) scale(0.98); }
-
-/* right panel */
-.panel{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.6);}
-.panel h4{ color:var(--accent); margin:0 0 10px 0;}
-.row{ display:flex; justify-content:space-between; align-items:center; margin:8px 0;}
-input[type=number]{ width:110px; padding:6px; border-radius:6px; border:none; }
-
-/* cards grid (for clicking to add to count) */
-.cardsGrid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:8px; margin-top:12px; }
-.cardsGrid img{ width:100%; height:70px; object-fit:cover; border-radius:6px; cursor:pointer; background:#111; }
-
-/* history */
-.historyBox{ margin-top:12px; background:var(--glass); padding:8px; border-radius:8px; min-height:60px; color:#ddd; overflow:auto; font-size:13px; }
-
-/* footer small */
-.status{ margin-top:12px; font-weight:700; color:#ffd680; text-align:center; }
-
-/* animations */
-@keyframes splashHide{ to{ opacity:0; visibility:hidden; } }
-@keyframes splashFloat{ 0%{ transform:translateY(0) } 50%{ transform:translateY(-14px)} 100%{ transform:translateY(0)} }
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.card {
-  width: 90px;
-}
-/* كروت 3D */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  padding: 15px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* تصغير حجم الكروت بدون خراب الخلفية */
-.card {
-  width: 60px;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  background: #000;
-}
-
-/* منع الكروت من التمدد وكسر الخلفية */
-#cardsContainer {
-  max-width: 100%;
-  margin: 0 auto;
-  overflow-x: hidden;
-}
-/* إصلاح تمدد الواجهة */
-.container,
-.wrapper,
-.main-content {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-}
-
-/* إصلاح البوكس الأبيض الطويل */
-.panel {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-}
-
-/* إصلاح ميل الواجهة لليسار */
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* إصلاح منطقة الكروت أسفل الشاشة */
-#cardsContainer {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-/* خلفية ذهبية متحركة فخمة */
 body {
   margin: 0;
+  font-family: 'Cairo', sans-serif;
   background: #000;
-  overflow-x: hidden;
+  color: #fff;
 }
 
+/* خلفية ذهبية متحركة */
 .animated-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #ffd56a22, transparent 60%),
-              radial-gradient(circle at 80% 80%, #ffcc5522, transparent 60%),
-              radial-gradient(circle at 50% 50%, #ffffff11, transparent 60%);
-  animation: vipMove 12s infinite alternate ease-in-out;
-  filter: blur(25px);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: -1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,215,0,0.2), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,185,0,0.18), transparent 50%);
+  animation: goldMove 10s infinite alternate ease-in-out;
+  filter: blur(25px);
 }
 
-@keyframes vipMove {
-  0% {
-    background-position: 20% 20%, 80% 80%, 50% 50%;
-  }
-  100% {
-    background-position: 80% 40%, 40% 90%, 60% 30%;
-  }
-  }
+@keyframes goldMove {
+  from { background-position: 20% 30%, 80% 70%; }
+  to   { background-position: 70% 40%, 40% 90%; }
+}
+
+/* Splash */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: hideSplash 5s forwards;
+  z-index: 2000;
+}
+
+@keyframes hideSplash {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 20px gold);
+}
+
+.topbar {
+  padding: 10px;
+  text-align: center;
+  color: gold;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left { width: 60%; }
+.right { width: 40%; }
+
+.game-box {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cardsRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cardsGrid img {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform .15s;
+}
+
+.cardsGrid img:active {
+  transform: scale(0.9);
+}
+
+.panel {
+  background: rgba(255,255,255,0.04);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}

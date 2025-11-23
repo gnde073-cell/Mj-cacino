@@ -2,63 +2,79 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MG Blackjack — 3D Casino Edition</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MG Blackjack — VIP</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-  <!-- SPLASH (5s) -->
+  <!-- خلفية ذهبية متحركة -->
+  <div class="animated-bg"></div>
+
+  <!-- شاشة ترحيب 5 ثواني -->
   <div id="splash">
     <div class="splash-inner">
-      <img id="mgLogo" src="assets/mg_logo.png" alt="MG Logo" />
+      <img src="assets/logo/mg_logo.png" class="logo" />
       <h2>Edition by Gooba</h2>
     </div>
-    <audio id="moneySound" src="assets/money.mp3" preload="auto"></audio>
   </div>
 
-  <!-- MAIN APP -->
+  <!-- العنوان -->
   <header class="topbar">
-    <div class="title">MG Blackjack — 3D Casino Edition</div>
+    <div class="title">MG Blackjack — VIP Edition</div>
   </header>
 
   <main class="container">
+
+    <!-- اللعبة -->
     <section class="left">
       <div class="game-box">
         <h3>اللعبة</h3>
+
         <div class="controls">
-          <button id="btnNew" onclick="startGame()">ابدأ جولة</button>
-          <button id="btnHit" onclick="hit()" disabled>سحب</button>
-          <button id="btnStand" onclick="stand()" disabled>توقّف</button>
+          <button id="btnNew">ابدأ جولة</button>
+          <button id="btnHit" disabled>سحب</button>
+          <button id="btnStand" disabled>توقّف</button>
         </div>
 
         <div class="hands">
-          <div><strong>أوراق اللاعب</strong><div id="playerCards" class="cardsRow"></div></div>
-          <div><strong>أوراق الموزع</strong><div id="dealerCards" class="cardsRow"></div></div>
+          <div>
+            <strong>أوراق اللاعب</strong>
+            <div id="playerCards" class="cardsRow"></div>
+          </div>
+          <div>
+            <strong>أوراق الموزع</strong>
+            <div id="dealerCards" class="cardsRow"></div>
+          </div>
         </div>
 
-        <p id="gameStatus" class="status">اضغط ابدأ لبدء الجولة</p>
+        <p id="status" class="status">اضغط ابدأ لبدء الجولة</p>
       </div>
     </section>
 
+    <!-- عداد Wong Halves -->
     <aside class="right">
       <div class="panel">
         <h4>عداد الأوراق (Wong Halves)</h4>
-        <div class="row"><label>العد الجاري (RC):</label><span id="RC">0</span></div>
-        <div class="row"><label>العداد الحقيقي (TC):</label><span id="TC">0</span></div>
-        <div class="row"><label>عدد الرزم المتبقية:</label>
+
+        <div class="row">
+          <label>العد الجاري:</label><span id="RC">0</span>
+        </div>
+
+        <div class="row">
+          <label>الرزم المتبقية:</label>
           <input id="decks" type="number" value="6" step="0.5" min="0.5" />
         </div>
-        <div class="row"><label>الرهان المقترح:</label><span id="bet">0</span></div>
-        <div class="row"><label>Bankroll:</label><input id="bank" type="number" value="1000" /></div>
-        <div class="row"><button onclick="resetCount()">ريست</button>
-          <button onclick="downloadCSV()">تنزيل CSV</button>
-        </div>
-        <h5>اضغط على صورة الورقة لتسجّلها بالعداد</h5>
+
+        <h5>اضغط على الورقة لإضافتها</h5>
         <div id="cardsGrid" class="cardsGrid"></div>
-        <div class="historyBox"><strong>سجل الأوراق:</strong><div id="history"></div></div>
+
       </div>
     </aside>
+
   </main>
 
-  <div
+  <script src="js/app.js"></script>
+</body>
+</html>

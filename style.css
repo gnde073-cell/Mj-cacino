@@ -127,3 +127,32 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+/* خلفية ذهبية متحركة فخمة */
+body {
+  margin: 0;
+  background: #000;
+  overflow-x: hidden;
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #ffd56a22, transparent 60%),
+              radial-gradient(circle at 80% 80%, #ffcc5522, transparent 60%),
+              radial-gradient(circle at 50% 50%, #ffffff11, transparent 60%);
+  animation: vipMove 12s infinite alternate ease-in-out;
+  filter: blur(25px);
+  z-index: -1;
+}
+
+@keyframes vipMove {
+  0% {
+    background-position: 20% 20%, 80% 80%, 50% 50%;
+  }
+  100% {
+    background-position: 80% 40%, 40% 90%, 60% 30%;
+  }
+  }

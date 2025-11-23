@@ -95,3 +95,35 @@ input[type=number]{ width:110px; padding:6px; border-radius:6px; border:none; }
   margin: 0 auto;
   overflow-x: hidden;
 }
+/* إصلاح تمدد الواجهة */
+.container,
+.wrapper,
+.main-content {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* إصلاح البوكس الأبيض الطويل */
+.panel {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* إصلاح ميل الواجهة لليسار */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* إصلاح منطقة الكروت أسفل الشاشة */
+#cardsContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
